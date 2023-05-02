@@ -3,6 +3,9 @@ name: Build Resume
 on: 
   push: 
     branches: [ master ]
+    paths:
+      - "Resume/**"
+      - "!Resume/build/**"
 
 jobs:
   build_resume:
