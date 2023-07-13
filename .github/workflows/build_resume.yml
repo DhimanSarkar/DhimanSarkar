@@ -4,7 +4,7 @@ on:
   push: 
     branches: [ master ]
     paths:
-      - "Resume/**"
+      - "Resume/src/**"
       - "!Resume/build/**"
 
 jobs:
@@ -18,25 +18,25 @@ jobs:
         continue-on-error: true
         uses: xu-cheng/latex-action@v2
         with:
-          working_directory: ./Resume
+          working_directory: ./Resume/src
           root_file: resume.tex
           work_in_root_file_dir: true
           latexmk_use_xelatex: true
           args: "-pdf -xelatex -interaction=nonstopmode -f"
           continue_on_error: true
           #extra_fonts: |
-          #  ./Resume/fonts/*.ttf
-          #  ./Resume/fonts*.otf
+          #  ./Resume/src/fonts/*.ttf
+          #  ./Resume/srcf/onts*.otf
         env:
-          TEXINPUTS: ".:./cv:./fonts:"
+          TEXINPUTS: "./src:./src/cv:./src/fonts:"
 
       - name: PDF Commit
         run: |
-          cp ./Resume/resume.pdf ./ResumePDF/Resume\ -\ Dhiman\ Sarkar.pdf
+          cp ./Resume/src/resume.pdf ./Resume/build/Resume\ -\ Dhiman\ Sarkar.pdf
           git config --global user.name "Dhiman Sarkar"
           git config --global user.email "dhiman.eminem@gmail.com"
           git status
-          git add ./ResumePDF/Resume\ -\ Dhiman\ Sarkar.pdf
+          git add ./Resume/build/Resume\ -\ Dhiman\ Sarkar.pdf
           git commit -m "Resume Updated"
           git push https://DhimanSarkar:${{ secrets.GIT_PUSH_TOKEN }}@github.com/DhimanSarkar/DhimanSarkar.git master
           echo "Commit Successful!"
