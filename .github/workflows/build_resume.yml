@@ -32,11 +32,11 @@ jobs:
 
       - name: PDF Commit
         run: |
-          cp ./Resume/resume.pdf ../ResumePDF/Resume\ -\ Dhiman\ Sarkar.pdf
+          cp ./Resume/resume.pdf ./ResumePDF/Resume\ -\ Dhiman\ Sarkar.pdf
           git config --global user.name "Dhiman Sarkar"
           git config --global user.email "dhiman.eminem@gmail.com"
           git status
-          git add ../ResumePDF/Resume\ -\ Dhiman\ Sarkar.pdf
+          git add ./ResumePDF/Resume\ -\ Dhiman\ Sarkar.pdf
           git commit -m "Resume Updated"
           git push https://DhimanSarkar:${{ secrets.GIT_PUSH_TOKEN }}@github.com/DhimanSarkar/DhimanSarkar.git master
           echo "Commit Successful!"
