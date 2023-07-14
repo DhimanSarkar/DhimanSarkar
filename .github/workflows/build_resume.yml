@@ -23,7 +23,7 @@ jobs:
           root_file: resume.tex
           work_in_root_file_dir: true
           latexmk_use_xelatex: true
-          args: '-pretex=""\\def\\pdfVersion{pdfVersion}"" -usepretex -pdf -xelatex -interaction=nonstopmode -f -g -verbose'
+          args: '-pretex=""\\def\\pdfVersion{${GITHUB_SHA}}"" -usepretex -pdf -xelatex -interaction=nonstopmode -f -g -verbose'
           continue_on_error: true
           #extra_fonts: |
           #  ./Resume/src/fonts/*.ttf
@@ -38,6 +38,6 @@ jobs:
           git config --global user.email "dhiman.eminem@gmail.com"
           git status
           git add ./Resume/build/Resume\ -\ Dhiman\ Sarkar.pdf
-          git commit -m "Resume Updated"
-          git push https://DhimanSarkar:${{ secrets.GIT_PUSH_TOKEN }}@github.com/DhimanSarkar/DhimanSarkar.git master
+          git commit -m "Resume Updated | commitVersion:https://github.com/DhimanSarkar/DhimanSarkar/commit/${GITHUB_SHA}"
+          git push https://DhimanSarkar:${{secrets.GIT_PUSH_TOKEN}}@github.com/DhimanSarkar/DhimanSarkar.git master
           echo "Commit Successful!"
