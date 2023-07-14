@@ -41,12 +41,12 @@
 % \photo[rectangle,edge,right]{./examples/profile}
 \name{Dhiman}{Sarkar}
 % \position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{ }
+% \address{}
 
 \mobile{+91 89276 86156}
 \email{Dhiman.Sarkar.Academics@gmail.com}
 %\dateofbirth{January 1st, 1970}
-%\homepage{www.posquit0.com} 
+%\homepage{https://DhimanSarkar.github.io/} 
 \github{github.com/DhimanSarkar}
 \linkedin{linkedin.com/in/Dhiman-Sarkar}
 % \gitlab{gitlab-id}
@@ -72,10 +72,6 @@
 \makecvheader
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
-\makecvfooter
-  {\today}
-  {}
-  {\thepage}
 
 
 %-------------------------------------------------------------------------------
@@ -94,7 +90,12 @@
 
 \vspace*{\fill}
 \begin{figure}[!b]
-  \null \hfill \href{https://DhimanSarkar.github.io/myResume/index.html?pdfVersion=\pdfVersion}{\includegraphics[width=1in]{./crossmark.pdf}}
+  \null \hfill \href{https://DhimanSarkar.github.io/myResume/index.html?pdfVersion=\ifdef{\pdfVersion}{\pdfVersion}{}}{\includegraphics[width=1in]{./crossmark.pdf}}
 \end{figure}
 %-------------------------------------------------------------------------------
+\makecvfooter
+  {\today}
+  {}
+  {\thepage}
+
 \end{document}
