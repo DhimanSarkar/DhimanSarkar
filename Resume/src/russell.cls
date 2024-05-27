@@ -633,8 +633,8 @@
     \ifempty{#2#3}
       {\entrytitlestyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#1} &  \\
-      \entrylocationstyle{#2} & \entrydatestyle{#4} \\
-      \entrypositionstyle{#3} & \\}
+      \entrylocationstyle{#2} & \entrydatestyle{#4} 
+      \ifempty{#3}{}{\newline \entrypositionstyle{#3} & }\\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
