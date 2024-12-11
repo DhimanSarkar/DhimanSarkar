@@ -70,6 +70,8 @@
 }
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
+\RequirePackage{siunitx}
+\RequirePackage{upgreek}
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
